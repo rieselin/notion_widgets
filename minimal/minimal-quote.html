@@ -70,7 +70,7 @@
       document.getElementById('widget').innerHTML = quotes[0];
       //$(selector).countdown({until: INTERVAL});
       quotes.forEach((quote, i) => {
-        quote.INTERVAL({until: i*INTERVAL});
+        quote.countdown({until: i*INTERVAL});
       });
     }
 
