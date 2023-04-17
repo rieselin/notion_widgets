@@ -63,9 +63,9 @@
       "Nicht das man das kann, aber das könnte man, theoretisch. -Flummi (THIN)"
     ];
 
-    const INTERVAL = 30;
+   // const INTERVAL = 30;
 
-    function displayQuote() {
+    /*function displayQuote() {
       const widgetElement = document.getElementById('widget');
       widgetElement.innerHTML = quotes[0];
       quotes.forEach((quote, i) => {
@@ -80,7 +80,33 @@
       // Assuming you have a valid selector for the widget element, you can set the countdown timer on it.
       $('.widget').countdown({until: quotes.length * INTERVAL});
     }
-    displayWidget();
+    displayWidget();*/
+    
+    const INTERVAL = 30;
+    let currentIndex = 0; // Current quote index
+
+    function displayQuote() {
+      const widgetElement = document.getElementById('widget');
+      widgetElement.innerHTML = quotes[currentIndex];
+      currentIndex = (currentIndex + 1) % quotes.length; // Increment index and loop back to 0
+      setTimeout(displayQuote, INTERVAL * 1000); // Call displayQuote() again after the specified interval
+    }
+
+    function displayWidget() {
+      displayQuote();
+    }
+
+    // Initialize the countdown on page load
+    window.addEventListener('load', function() {
+      // Retrieve current quote index from local storage
+      currentIndex = parseInt(localStorage.getItem('quoteIndex')) || 0;
+      displayWidget();
+    });
+
+    // Save current quote index to local storage before page is unloaded
+    window.addEventListener('beforeunload', function() {
+      localStorage.setItem('quoteIndex', currentIndex);
+    });
 
 
     // var ms = 0,
