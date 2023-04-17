@@ -65,20 +65,21 @@
 
     const INTERVAL = 30;
 
-    function dispalyQuote() {
-
-      document.getElementById('widget').innerHTML = quotes[0];
-      //$(selector).countdown({until: INTERVAL});
+    function displayQuote() {
+      const widgetElement = document.getElementById('widget');
+      widgetElement.innerHTML = quotes[0];
       quotes.forEach((quote, i) => {
-        quote.countdown({until: i*INTERVAL});
+        // Assuming `quote` is a valid DOM element, you can set the countdown timer on it.
+        $(quote).countdown({until: (i + 1) * INTERVAL});
       });
     }
 
-    function dispalyWidget() {
-      dispalyQuote();
-      (dispalyWidget).countdown({until:quotes.length * INTERVAL});
+    function displayWidget() {
+      displayQuote();
+      // Assuming you have a valid selector for the widget element, you can set the countdown timer on it.
+      $(#widget).countdown({until: quotes.length * INTERVAL});
     }
-    dispalyWidget()
+    displayWidget();
 
 
     // var ms = 0,
