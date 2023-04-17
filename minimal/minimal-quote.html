@@ -61,28 +61,13 @@
       "Yeah, I've been around. They want me to find the man who rules the Universe, but I don't care to meet him. I believe the man can't cook. -Zaphod Beeblebrox (The Restaurant at the End of the Universe)",
       "How do you know you're having fun if no one is watching you have it -Zaphod Beeblebrox (The Restaurant at the End of the Universe)",
       "Nicht das man das kann, aber das könnte man, theoretisch. -Flummi (THIN)"
+      "What's the game? No idea but I'm very good at it -Moss (White Collar)",
+      "If someone sends you a Banana Bread you know that someone had bad bananas and thought of you. -Caldwell Tanner (Dungeon Court)",
+      "There is nothing wrong with crying when you need to. Or laughing when your heart is happy. Or being very quiet when your mind is thinking about things. -Lucas Jonquil (Charming Artemis)",
+      "So shall I get you some moving boxes? It's just stuff surrounded by walls... -Moss (White Collar)"
     ];
-
-   // const INTERVAL = 30;
-
-    /*function displayQuote() {
-      const widgetElement = document.getElementById('widget');
-      widgetElement.innerHTML = quotes[0];
-      quotes.forEach((quote, i) => {
-        // Assuming `quote` is a valid DOM element, you can set the countdown timer on it.
-        $(quote).countdown({until: (i + 1) * INTERVAL});
-      });
-    }
-
-    function displayWidget() {
-      displayQuote();
-      //const widgetElement = document.getElementById('widget');
-      // Assuming you have a valid selector for the widget element, you can set the countdown timer on it.
-      $('.widget').countdown({until: quotes.length * INTERVAL});
-    }
-    displayWidget();*/
     
-    const INTERVAL = 30;
+    const INTERVAL = 300;
     let currentIndex = 0; // Current quote index
 
     function displayQuote() {
@@ -108,95 +93,6 @@
     window.addEventListener('beforeunload', function() {
       localStorage.setItem('quoteIndex', currentIndex);
     });
-
-
-    // var ms = 0,
-    //   s = 0,
-    //   m = 60;
-    // var isCountingDown = false;
-    // var timer;
-
-    // window.addEventListener("load", function () {
-    //   if (window.localStorage.getItem("time") !== null) {
-    //     let obj = JSON.parse(window.localStorage.getItem("time"));
-    //     ms = obj["ms"];
-
-    //     //stopwatchEl.textContent = `${m}:${s}:${ms}`;
-    //     dispalyWidget();
-    //   }
-    // });
-
-    // window.addEventListener("beforeunload", function () {
-    //   if (isCountingDown == true) {
-    //     isCountingDown = false;
-    //     let obj = {
-    //       ms: ms,
-    //       s: s,
-    //       m: m,
-    //     };
-    //     window.localStorage.setItem("time", JSON.stringify(obj));
-    //   }
-
-    // });
-
-    // function start() {
-    //   if (!timer) {
-    //     isCountingDown = true;
-    //     timer = setInterval(run, 10);
-    //   }
-    // }
-
-    // function run() {
-    //   stopwatchEl.textContent =
-    //     (m < 10 ? "0" + m : m) +
-    //     ":" +
-    //     (s < 10 ? "0" + s : s) +
-    //     ":" +
-    //     (ms < 10 ? "0" + ms : ms);
-    //   ms--;
-    //   if (ms < 0) {
-    //     ms = 99;
-    //     s--;
-    //   }
-    //   if (s < 0) {
-    //     s = 59;
-    //     m--;
-    //   }
-    //   if (m == 0 && s == 0 && ms == 0) {
-    //     pause();
-    //     var figyelmeztetes = confirm("Lejárt az idő!");
-    //   }
-    //   stopwatchEl.textContent =
-    //     (m < 10 ? "0" + m : m) +
-    //     ":" +
-    //     (s < 10 ? "0" + s : s) +
-    //     ":" +
-    //     (ms < 10 ? "0" + ms : ms);
-    // }
-
-    // function pause() {
-    //   clearInterval(timer);
-    //   timer = false;
-    // }
-
-    // function stop() {
-    //   var figyelmeztetes = confirm(
-    //     "Vigyázz!!! Ezzel a számláló visszaáll 60 percre!"
-    //   );
-    //   if (figyelmeztetes == true) {
-    //     clearInterval(timer);
-    //     timer = false;
-    //     ms = 0;
-    //     s = 0;
-    //     m = 60;
-    //     stopwatchEl.textContent =
-    //       (m < 10 ? "0" + m : m) +
-    //       ":" +
-    //       (s < 10 ? "0" + s : s) +
-    //       ":" +
-    //       (ms < 10 ? "0" + ms : ms);
-    //   }
-    // }
 
   </script>
 
