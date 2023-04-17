@@ -91,6 +91,7 @@
       currentIndex = (currentIndex + 1) % quotes.length; // Increment index and loop back to 0
       setTimeout(displayQuote, INTERVAL * 1000); // Call displayQuote() again after the specified interval
     }
+    dispayWidget();
 
     function displayWidget() {
       displayQuote();
