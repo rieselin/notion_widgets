@@ -76,9 +76,9 @@
 
     function displayWidget() {
       displayQuote();
-      const widgetElement = document.getElementById('widget');
+      //const widgetElement = document.getElementById('widget');
       // Assuming you have a valid selector for the widget element, you can set the countdown timer on it.
-      $(widgetElement).countdown({until: quotes.length * INTERVAL});
+      $('.widget').countdown({until: quotes.length * INTERVAL});
     }
     displayWidget();
 
