@@ -67,7 +67,7 @@
       "So shall I get you some moving boxes? It's just stuff surrounded by walls... -Moss (White Collar)"
     ];
     
-    const INTERVAL = 300;
+    /*const INTERVAL = 300;
     let currentIndex = 0; // Current quote index
 
     function displayQuote() {
@@ -92,6 +92,29 @@
     // Save current quote index to local storage before page is unloaded
     window.addEventListener('beforeunload', function() {
       localStorage.setItem('quoteIndex', currentIndex);
+    });*/
+    
+    const INTERVAL = 30;
+    let currentIndex = 0; // Current quote index
+
+    function displayQuote() {
+      const widgetElement = document.getElementById('widget');
+      widgetElement.innerHTML = quotes[currentIndex];
+      currentIndex = (currentIndex + 1) % quotes.length; // Increment index and loop back to 0
+      document.cookie = `quoteIndex=${currentIndex}; path=/`; // Save current quote index to cookie
+      setTimeout(displayQuote, INTERVAL * 1000); // Call displayQuote() again after the specified interval
+    }
+
+    function displayWidget() {
+      displayQuote();
+    }
+
+    // Initialize the countdown on page load
+    window.addEventListener('load', function() {
+      // Retrieve current quote index from cookie
+      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)quoteIndex\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+      currentIndex = parseInt(cookieValue) || 0;
+      displayWidget();
     });
 
   </script>
