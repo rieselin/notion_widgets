@@ -95,25 +95,26 @@
     });*/
     
     const INTERVAL = 300;
-    let currentIndex = 0; // Current quote index
-
+    
     function displayQuote() {
       const widgetElement = document.getElementById('widget');
+      
+      // Get the current date as YYYYMMDD
+      const today = new Date();
+      const dateKey = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+      
+      // Use modulo to get an index based on the date
+      const currentIndex = dateKey % quotes.length;
+      
       widgetElement.innerHTML = quotes[currentIndex];
-      currentIndex = (currentIndex + 1) % quotes.length; // Increment index and loop back to 0
-      document.cookie = `quoteIndex=${currentIndex}; path=/`; // Save current quote index to cookie
-      setTimeout(displayQuote, INTERVAL * 1000); // Call displayQuote() again after the specified interval
     }
 
     function displayWidget() {
       displayQuote();
     }
 
-    // Initialize the countdown on page load
+    // Initialize on page load
     window.addEventListener('load', function() {
-      // Retrieve current quote index from cookie
-      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)quoteIndex\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-      currentIndex = parseInt(cookieValue) || 0;
       displayWidget();
     });
 
